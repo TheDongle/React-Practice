@@ -1,0 +1,9 @@
+//// Regular docker commands ////
+
+docker build -t <tagname>:latest
+docker image tag <old-tagname> <new-tagname>:latest
+docker run -d --network="host" <image>
+
+
+//// Current dev container ////
+docker run -d --network="host" node/vite:latest
