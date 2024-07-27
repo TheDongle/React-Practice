@@ -1,35 +1,25 @@
-import { useState } from 'react'
-import reactLogo from './assets/react.svg'
-import viteLogo from '/vite.svg'
-import './App.css'
+// import { useState } from "react";
+import Plateau from "./components/Plateau";
+import Compass from "./components/Compass";
+import Controls from "./components/Controls";
+
 
 function App() {
-  const [count, setCount] = useState(0)
-
   return (
-    <>
-      <div>
-        <a href="https://vitejs.dev" target="_blank">
-          <img src={viteLogo} className="logo" alt="Vite logo" />
-        </a>
-        <a href="https://react.dev" target="_blank">
-          <img src={reactLogo} className="logo react" alt="React logo" />
-        </a>
-      </div>
-      <h1>Vite + React</h1>
-      <div className="card">
-        <button onClick={() => setCount((count) => count + 1)}>
-          count is {count}
-        </button>
-        <p>
-          Edit <code>src/App.tsx</code> and save to test HMR
-        </p>
-      </div>
-      <p className="read-the-docs">
-        Click on the Vite and React logos to learn more
-      </p>
-    </>
-  )
+    <div className="game flex h-screen w-fit flex-col gap-[0.25rem] bg-purple py-[0.25rem]">
+      <Compass
+        className={
+          "flex h-fit place-content-center rounded bg-cream text-xl font-semibold"
+        }
+      ></Compass>
+      <Plateau
+        className={
+          "mx-auto grid aspect-square h-[80vh] grid-cols-10 gap-[0.25rem] bg-purple"
+        }
+      ></Plateau>
+      <Controls className="flex h-fit justify-evenly gap-x-[0.25rem] text-xl font-semibold"></Controls>
+    </div>
+  );
 }
 
-export default App
+export default App;

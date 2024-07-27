@@ -1,8 +1,12 @@
-//// Regular docker commands ////
+//// Docker commands ////
 
 docker build -t <tagname>:latest
 docker image tag <old-tagname> <new-tagname>:latest
 docker run -d --network="host" <image>
+
+//// Jest Typescript Config ////
+
+https://jestjs.io/docs/getting-started
 
 
 //// Current dev container ////
