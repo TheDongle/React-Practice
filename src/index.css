@@ -5,5 +5,9 @@
 main {
   height: 100vh;
   --tw-bg-opacity: 1;
-  background-color: rgb(96 76 195 / var(--tw-bg-opacity));
+  background-color: #121435;
+}
+
+body {
+  background-color: #121435;
 }

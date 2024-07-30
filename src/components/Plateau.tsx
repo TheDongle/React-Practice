@@ -1,30 +1,32 @@
-import Rover from "./rover";
+import Rover from "./Rover";
+import { RoverProps } from "./Rover";
 
-interface SquareProps {
-  isEmpty: boolean;
-}
+interface SquareProps extends RoverProps {}
 
-function Square({ isEmpty = true }: SquareProps) {
+function Square({ isEmpty = true, angle = 0 }: SquareProps) {
   return (
-    <div className="square aspect-square rounded-sm bg-cream">
-      <Rover isEmpty={isEmpty}></Rover>
+    <div className="square aspect-square rounded-sm bg-orange">
+      <Rover angle={angle} isEmpty={isEmpty}></Rover>
     </div>
   );
 }
 
-// type CardinalDirections = "N" | "E" | "S" | "W";
-// type NumberLessThan10 = 0 | 1 | 2 | 3 | 4 | 5 | 6 | 7 | 8 | 9;
+interface PlateauProps {
+  className?: string;
+  angle: number;
+  destination: number;
+}
 
-export default function Plateu({ className }: { className?: string }) {
+export default function Plateu({
+  className,
+  angle,
+  destination,
+}: PlateauProps) {
   const classes = className ? `plateu ${className}` : `plateu`;
   const squares = Array(100).fill(null);
   for (let i = 0; i < squares.length; i++) {
-    const isEmpty = i !== 90;
-    squares[i] = <Square isEmpty={isEmpty} key={i}></Square>;
+    const isEmpty = i !== destination;
+    squares[i] = <Square angle={angle} isEmpty={isEmpty} key={i}></Square>;
   }
-  return (
-    <div className={classes}>
-      {squares}
-    </div>
-  );
+  return <div className={classes}>{squares}</div>;
 }

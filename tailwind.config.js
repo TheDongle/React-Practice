@@ -4,10 +4,10 @@ export default {
   theme: {
     extend: {
       colors: {
-        cream: "#FFF6E9",
-        orange: "#FF7F3E",
-        blue: "#80C4E9",
-        purple: "#604CC3",
+        black: "#121435",
+        white: "#FAF9F0",
+        beige: "#EDEBCA",
+        orange: "#FF5722",
       },
     },
   },

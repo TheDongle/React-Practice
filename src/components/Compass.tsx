@@ -1,9 +1,7 @@
-type CardinalDirections = "N" | "E" | "S" | "W";
-type NumberLessThanTen = 0 | 1 | 2 | 3 | 4 | 5 | 6 | 7 | 8 | 9;
-type CoordinateTuple = [NumberLessThanTen, NumberLessThanTen];
+export type CoordinateTuple = [number, number];
 interface CompassProps {
-  coordinates?: CoordinateTuple;
-  bearing?: CardinalDirections;
+  coordinates: CoordinateTuple;
+  bearing: string;
   className?: string;
 }
 
@@ -12,15 +10,11 @@ export default function Compass({
   bearing,
   className,
 }: CompassProps) {
-  coordinates ??= [0, 0];
-  bearing ??= "N";
   const position = `${coordinates[0]}:${coordinates[1]}:${bearing}`;
   const classes = className ? `compass ${className}` : `compass`;
   return (
     <section className={classes}>
-      <p className="h-[100%] grow place-content-center place-self-center text-center text-[6vh] leading-snug">
-        {`Current Position is ${position}`}
-      </p>
+      <p className={classes}>{`Position = ${position}`}</p>
     </section>
   );
 }
